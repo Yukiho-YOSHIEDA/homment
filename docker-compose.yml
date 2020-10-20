@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mysql:
+        image: 'mysql:8'
+        ports:
+            - '3306:3306'
+        volumes:
+            - ./db/data:/var/lib/mysql
+            - ./db/conf:/etc/mysql/conf.d
+        environment:
+            MYSQL_ROOT_PASSWORD: homment
+            MYSQL_DATABASE: homment
+            MYSQL_USER: homment
+            MYSQL_PASSWORD: homment
