@@ -20,7 +20,7 @@ import java.util.Objects;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -33,7 +33,7 @@ public class UserController {
         if (Objects.nonNull(user)) {
             return "redirect:" + "/rooms/enter";
         }
-        
+
         return "users/register";
     }
 

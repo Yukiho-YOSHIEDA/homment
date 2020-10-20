@@ -4,6 +4,10 @@
 </head>
 <body>
 <h1>パスワードをいれよう</h1>
+<div>
+    <span><span th:text="${userData.name}">Sample Name</span>&nbsp;さん</span>
+    <img height="100px" width="100px" th:src="${userData.icon}"/>
+</div>
 <form method="post" action="/users">
     <label>
         パスワード
