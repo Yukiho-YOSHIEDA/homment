@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.UnsupportedEncodingException;
@@ -42,5 +43,11 @@ public class RoomController {
         }
 
         return "/rooms/enter";
+    }
+
+    @GetMapping("/{roomId}/viewer")
+    public String getViewer(Model model, @PathVariable("roomId") Integer roomId) {
+
+        return "/rooms/viewer";
     }
 }
