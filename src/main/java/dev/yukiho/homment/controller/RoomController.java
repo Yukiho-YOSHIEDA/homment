@@ -42,12 +42,12 @@ public class RoomController {
             return "redirect:" + "/index";
         }
 
-        return "/rooms/enter";
+        return "rooms/enter";
     }
 
     @GetMapping("/{roomId}/viewer")
     public String getViewer(Model model, @PathVariable("roomId") Integer roomId) {
 
-        return "/rooms/viewer";
+        return "rooms/viewer";
     }
 }

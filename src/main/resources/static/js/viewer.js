@@ -22,7 +22,7 @@ function create() {
   element.innerHTML = `<div class="comment">
     <img class="balloon" src="${balloon}" alt="気球">
     <img class="icon" src="/images/default_icon.png" alt="アイコン">
-    <img class="action" src="/images/good.png" alt="リアクション">
+    <img class="action" src="${actions.good}" alt="リアクション">
   </div>`
   panel.insertAdjacentElement('beforeend', element);
 

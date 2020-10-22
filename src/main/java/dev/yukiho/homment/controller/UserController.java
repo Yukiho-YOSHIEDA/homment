@@ -52,7 +52,7 @@ public class UserController {
             } catch (IOException e) {
                 // TODO エラー処理
                 e.printStackTrace();
-                return "/index";
+                return "index";
             }
         } else {
             try {
@@ -61,7 +61,7 @@ public class UserController {
             } catch (IOException e) {
                 // TODO エラー処理
                 e.printStackTrace();
-                return "/index";
+                return "index";
             }
         }
 
