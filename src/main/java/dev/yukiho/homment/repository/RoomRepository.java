@@ -28,6 +28,16 @@ public class RoomRepository {
     }
 
     /**
+     * roomIdからレコードを取得します
+     *
+     * @param roomId
+     * @return
+     */
+    public Room selectById(int roomId) {
+        return roomMapper.selectByPrimaryKey(roomId);
+    }
+
+    /**
      * UserIdが作成したroomを取得します
      *
      * @param userId

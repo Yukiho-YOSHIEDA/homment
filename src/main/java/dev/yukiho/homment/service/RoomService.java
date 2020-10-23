@@ -31,6 +31,26 @@ public class RoomService {
     }
 
     /**
+     * RoomIdからレコードを取得します
+     *
+     * @param roomId
+     * @return
+     */
+    public Room getById(int roomId) {
+        return roomRepository.selectById(roomId);
+    }
+
+    /**
+     * パスワードからroomを検索します
+     *
+     * @param password
+     * @return
+     */
+    public List<RoomPassword> getByPassword(int password) {
+        return roomPasswordRepository.selectByPassword(password);
+    }
+
+    /**
      * Userによって作成されたRoomを取得します
      *
      * @param userId
