@@ -1,0 +1,99 @@
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/bg_cloud.png') bottom;
+  background-size: cover;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+}
+
+.from-wrapper {
+  padding-top: 200px;
+  padding-left: calc(100vw / 2 - 545px);
+}
+
+.postButton {
+  display: block;
+  position: absolute;
+  background: #E99F31;
+  color: #FFFFFF;
+  width: 500px;
+  height: 150px;
+  right: 0;
+  top: 0;
+  font-size: 70px;
+  border-radius: 0;
+  border: none;
+}
+
+.postButton:disabled {
+  background: #A9A9A9;
+  color: #DBDBDB;
+}
+
+.postButton:active {
+  opacity: 0.7;
+}
+
+.icon-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 170px;
+  height: 170px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.image-input {
+  display: none;
+}
+
+.guide-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 400px;
+  padding: 0 30px;
+}
+
+.guide-wrapper > img {
+  width: 100%;
+}
+
+.camera-tip {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  right: 0;
+}
+
+.guide {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+}
+
+.input-wrapper {
+  padding-top: 70px;
+  text-align: center;
+}
+
+.input-wrapper > input {
+  font-size: 40px;
+  padding: 15px;
+}

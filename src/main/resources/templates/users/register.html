@@ -1,16 +1,41 @@
 <html>
 <head>
     <title>ほめんと | 登録</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
 </head>
 <body>
-<h1>名前をいれよう</h1>
-<form method="post" enctype="multipart/form-data" action="/users">
-    <input type="file" name="icon" accept="image/*"/>
-    <label>
-        名前
-        <input type="text" name="name" placeholder="ここに入力" required/>
-    </label>
-    <input type="submit" value="登録"/>
-</form>
+<div class="bg" id="bg">
+    <a href="/" class="backButton">
+        <img src="/images/back.png" alt="戻る"/>
+    </a>
+    <form method="post" enctype="multipart/form-data" action="/users">
+        <div class="from-wrapper">
+            <div class="guide-wrapper">
+                <img class="cloud" src="/images/cloud.png" alt="くも"/>
+                <div class="guide">
+                    <div>名前をしゃしんを</div>
+                    <div>いれよう</div>
+                </div>
+            </div>
+            <label>
+                <span class="icon-wrapper" title="写真をえらぶ">
+                    <img id="icon" class="icon" src="/images/default_icon.png" alt="アイコン">
+                    <img class="camera-tip" src="/images/camera.png" alt="カメラ">
+                </span>
+                <input id="imageInput" class="image-input" type="file" name="icon" accept="image/*"/>
+            </label>
+        </div>
+        <div class="input-wrapper">
+            <input id="nameText" type="text" name="name" placeholder="名前をここに入力" required/>
+        </div>
+        <input id="postButton" class="postButton" type="submit" value="とうろく" disabled/>
+    </form>
+</div>
+<script type="text/javascript" src="/js/register.js"></script>
 </body>
 </html>
