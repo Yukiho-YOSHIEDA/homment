@@ -12,4 +12,9 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("teacher")
+    public String indexTeacher() {
+        return "index_teacher";
+    }
 }

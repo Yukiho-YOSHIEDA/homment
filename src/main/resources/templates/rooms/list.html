@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ほめんと | 教室一覧</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!--    <link rel="stylesheet" th:href="@{/css/cheer.css}">-->
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+</head>
+<body>
+<h1>教室一覧</h1>
+<div><a href="/rooms/new">新規作成</a></div>
+<div>
+    <div th:each="room : ${rooms}">
+        <div th:text="${room.name}">授業名</div>
+        <div th:text="${room.password}">パスワード</div>
+        <div><a th:href="@{'/rooms/' + ${room.id} + '/viewer'}">ビューワー</a></div>
+        <div><a th:href="@{'/rooms/' + ${room.id} + '/members'}">参加者一覧</a></div>
+    </div>
+</div>
+</body>
+</html>

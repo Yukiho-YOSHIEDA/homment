@@ -23,11 +23,21 @@
     </div>
     <div class="button-container">
         <div class="button-container-row">
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('good')">
+                <div class="button-bg">
+                </div>
+                <div class="button">
+                    <img class="rotate-left" src="/images/action/good.png"/>
+                </div>
             </div>
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('clap')">
+                <div class="button-bg">
+                </div>
+                <div class="button">
+                    <img class="rotate-right" src="/images/action/clap.png"/>
+                </div>
             </div>
             <div class="dummy">
             </div>
@@ -35,15 +45,31 @@
         <div class="button-container-row">
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('cheer')">
+                <div class="button-bg">
+                </div>
+                <div class="button">
+                    <img class="rotate-left" src="/images/action/cheer.png"/>
+                </div>
             </div>
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('star')">
+                <div class="button-bg">
+                </div>
+                <div class="button">
+                    <img class="rotate-left" src="/images/action/star.png"/>
+                </div>
             </div>
         </div>
     </div>
     <div class="cheer-label">おうえん</div>
 </div>
+<script type="text/javascript" th:inline="javascript">
+  /*<![CDATA[*/
+  const roomId = /*[[ ${roomId} ]]*/;
+  /*]]>*/
+</script>
+<script type="text/javascript" src="/js/cheer.js"></script>
 </body>
 </html>
