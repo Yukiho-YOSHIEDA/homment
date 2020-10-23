@@ -1,16 +1,14 @@
 package dev.yukiho.homment.controller;
 
-import dev.yukiho.homment.model.RoomData;
 import dev.yukiho.homment.service.RoomService;
 import dev.yukiho.homment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -32,12 +30,12 @@ public class RoomController {
     @GetMapping
     public String redirectToRoom(@RequestParam("password") int password, Model model) {
         final var roomPasswordList = roomService.getByPassword(password);
-        if (roomPasswordList.size() > 0) {
-            final var roomPassword = roomPasswordList.get(0);
-            return "redirect:" + "/rooms/" + roomPassword.getRoomId() + "/cheer";
+        if (roomPasswordList.isEmpty()) {
+            model.addAttribute("errorMessage", "教室が見つからなかったよ！");
+            return "rooms/enter";
         }
-        model.addAttribute("errorMessage", "教室が見つからなかったよ！");
-        return "rooms/enter";
+        final var roomPassword = roomPasswordList.get(0);
+        return "redirect:" + "/rooms/" + roomPassword.getRoomId() + "/cheer";
     }
 
     @PostMapping
@@ -114,6 +112,7 @@ public class RoomController {
 
     @GetMapping("/{roomId}/viewer")
     public String getViewer(Model model, @PathVariable("roomId") Integer roomId) {
+        model.addAttribute("roomId", roomId);
 
         return "rooms/viewer";
     }
