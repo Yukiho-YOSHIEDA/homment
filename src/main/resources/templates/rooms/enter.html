@@ -1,19 +1,33 @@
 <html>
 <head>
     <title>ほめんと | 入室</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/enter.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
 </head>
 <body>
-<h1>パスワードをいれよう</h1>
-<div>
-    <span><span th:text="${userData.name}">Sample Name</span>&nbsp;さん</span>
-    <img height="100px" width="100px" th:src="${userData.icon}"/>
+<div class="bg" id="bg">
+    <a href="/" class="backButton">
+        <img src="/images/back.png" alt="戻る"/>
+    </a>
+    <form method="get" action="/rooms">
+        <div class="from-wrapper">
+            <div class="guide-wrapper">
+                <img class="cloud" src="/images/cloud.png" alt="くも"/>
+                <div class="guide">
+                    <div>パスワードをいれよう</div>
+                </div>
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <input id="passwordInput" type="text" name="password" placeholder="ここに入力" required/>
+        </div>
+        <input id="postButton" class="postButton" type="submit" value="教室にはいる" disabled/>
+    </form>
 </div>
-<form method="post" action="/users">
-    <label>
-        パスワード
-        <input type="text" name="password" placeholder="ここに入力" required/>
-    </label>
-    <input type="submit" value="部屋に入る"/>
-</form>
+<script type="text/javascript" src="/js/enter.js"></script>
 </body>
 </html>

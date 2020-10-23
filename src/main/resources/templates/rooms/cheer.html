@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ほめんと | おうえん</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/cheer.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+</head>
+<body>
+<div class="bg" id="bg">
+    <div class="guide-wrapper">
+        <img class="cloud" src="/images/cloud.png" alt="くも"/>
+        <div class="guide">
+            <div>おうえんしよう！</div>
+        </div>
+    </div>
+    <div class="user-info">
+        <img class="icon" th:src="${userData.icon}"/>
+        <span class="username"><span th:text="${userData.name}">Sample Name</span>&nbsp;さん</span>
+    </div>
+    <div class="button-container">
+        <div class="button-container-row">
+            <div class="button-wrapper">
+            </div>
+            <div class="dummy">
+            </div>
+            <div class="button-wrapper">
+            </div>
+            <div class="dummy">
+            </div>
+        </div>
+        <div class="button-container-row">
+            <div class="dummy">
+            </div>
+            <div class="button-wrapper">
+            </div>
+            <div class="dummy">
+            </div>
+            <div class="button-wrapper">
+            </div>
+        </div>
+    </div>
+    <div class="cheer-label">おうえん</div>
+</div>
+</body>
+</html>
