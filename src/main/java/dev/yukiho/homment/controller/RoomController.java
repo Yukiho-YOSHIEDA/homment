@@ -4,10 +4,7 @@ import dev.yukiho.homment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Objects;
@@ -24,6 +21,12 @@ public class RoomController {
     @Autowired
     public RoomController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping
+    public String redirectToRoom(@RequestParam("password") String password) {
+        // TODO 実装
+        return "index";
     }
 
     @GetMapping("/enter")
