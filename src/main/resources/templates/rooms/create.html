@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ほめんと | 教室新規作成</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!--    <link rel="stylesheet" th:href="@{/css/cheer.css}">-->
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+</head>
+<body>
+<h1>教室作成</h1>
+<form action="/rooms" method="post">
+    <h3>名前</h3>
+    <label>
+        <input type="text" name="name" placeholder="授業名を入力" required/>
+    </label>
+    <input type="submit" value="作成する">
+</form>
+</body>
+</html>

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 
 import static java.nio.charset.StandardCharsets.US_ASCII;
 
@@ -41,7 +40,7 @@ public class UserService {
         final var userData = new UserData();
         userData.setName(user.getName());
         userData.setIcon(iconData);
-        
+
         return userData;
     }
 

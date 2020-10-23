@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dev.yukiho.homment.db.mapper.CheerMapper">
+<mapper namespace="dev.yukiho.homment.db.mapper.advance.RoomAdvanceMapper">
     <resultMap id="BaseResultMap" type="dev.yukiho.homment.model.RoomData">
-
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="INTEGER" property="password"/>
     </resultMap>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT room.id, room.name, room_password.password
+        FROM room,
+             room_password,
+             `user`
+        WHERE room.id = room_password.room_id
+          AND `user`.id = room.created_by
+          AND `user`.id = ${userId}
+          AND room_password.is_deleted = false;
+    </select>
 </mapper>
