@@ -30,10 +30,14 @@ public class RoomController {
     }
 
     @GetMapping
-    public String redirectToRoom(@RequestParam("password") String password) {
-        // TODO 実装
-        final var roomId = 1;
-        return "redirect:" + "/rooms/" + roomId + "/cheer";
+    public String redirectToRoom(@RequestParam("password") int password, Model model) {
+        final var roomPasswordList = roomService.getByPassword(password);
+        if (roomPasswordList.size() > 0) {
+            final var roomPassword = roomPasswordList.get(0);
+            return "redirect:" + "/rooms/" + roomPassword.getRoomId() + "/cheer";
+        }
+        model.addAttribute("errorMessage", "教室が見つからなかったよ！");
+        return "rooms/enter";
     }
 
     @PostMapping
@@ -88,6 +92,11 @@ public class RoomController {
         // user登録がされていない
         if (Objects.isNull(user)) {
             return "redirect:" + "/users/register";
+        }
+
+        final var room = roomService.getById(roomId);
+        if (Objects.isNull(room)) {
+            return "redirect:" + "/rooms/enter";
         }
 
         final var userId = Integer.parseInt(user);

@@ -23,6 +23,7 @@
             </div>
         </div>
         <div class="input-wrapper">
+            <div class="error" th:if="${errorMessage} != null" th:text="${errorMessage}"></div>
             <input id="passwordInput" type="text" name="password" placeholder="ここに入力" required/>
         </div>
         <input id="postButton" class="postButton" type="submit" value="教室にはいる" disabled/>
