@@ -23,7 +23,7 @@
     </div>
     <div class="button-container">
         <div class="button-container-row">
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('good')">
                 <div class="button-bg">
                 </div>
                 <div class="button">
@@ -32,7 +32,7 @@
             </div>
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('clap')">
                 <div class="button-bg">
                 </div>
                 <div class="button">
@@ -45,7 +45,7 @@
         <div class="button-container-row">
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('cheer')">
                 <div class="button-bg">
                 </div>
                 <div class="button">
@@ -54,7 +54,7 @@
             </div>
             <div class="dummy">
             </div>
-            <div class="button-wrapper">
+            <div class="button-wrapper" onclick="post('star')">
                 <div class="button-bg">
                 </div>
                 <div class="button">
@@ -65,5 +65,11 @@
     </div>
     <div class="cheer-label">おうえん</div>
 </div>
+<script type="text/javascript" th:inline="javascript">
+  /*<![CDATA[*/
+  const roomId = /*[[ ${roomId} ]]*/;
+  /*]]>*/
+</script>
+<script type="text/javascript" src="/js/cheer.js"></script>
 </body>
 </html>
