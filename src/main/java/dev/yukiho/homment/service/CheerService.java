@@ -25,7 +25,7 @@ public class CheerService {
      * @param userId
      * @param roomId
      */
-    public void save(String action, int userId, int roomId) {
+    public Cheer save(String action, int userId, int roomId) {
         final var cheer = new Cheer();
         cheer.setComment(action);
         cheer.setUserId(userId);
@@ -33,6 +33,6 @@ public class CheerService {
 
         cheerRepository.insert(cheer);
 
-        // TODO: ブロードキャスト
+        return cheer;
     }
 }

@@ -11,7 +11,32 @@ const actions = {
   star: '/images/action/star.png',
 };
 
-function create() {
+const userCache = {};
+
+// WebSocket
+const socket = new SockJS('/sockws');
+stompClient = webstomp.over(socket);
+stompClient.connect({}, function () {
+  stompClient.subscribe('/comment/rooms/' + roomId + '/updated', function (data) {
+    const comment = JSON.parse(data.body);
+
+    if (userCache[comment.commentedBy]) {
+      create(comment.action, userCache[comment.commentedBy]);
+    } else {
+      fetch('/api/users/' + comment.commentedBy)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          const icon = data.icon;
+          userCache[comment.commentedBy] = icon;
+          create(comment.action, icon);
+        });
+    }
+  });
+});
+
+function create(action, icon) {
   const panel = document.getElementById('bg');
   const left = getRandomInt(window.innerWidth - 500);
   const style = `bottom: -1000; left: ${left}px`;
@@ -21,8 +46,8 @@ function create() {
   element.style.cssText = style;
   element.innerHTML = `<div class="comment">
     <img class="balloon" src="${balloon}" alt="気球">
-    <img class="icon" src="/images/default_icon.png" alt="アイコン">
-    <img class="action" src="${actions.good}" alt="リアクション">
+    <img class="icon" src="${icon}" alt="アイコン">
+    <img class="action" src="${actions[action]}" alt="リアクション">
   </div>`
   panel.insertAdjacentElement('beforeend', element);
 

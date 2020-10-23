@@ -11,8 +11,14 @@
 </head>
 <body>
 <div class="bg" id="bg">
-    <button onclick="create()">作成</button>
 </div>
+<script type="text/javascript" th:inline="javascript">
+  /*<![CDATA[*/
+  const roomId = /*[[ ${roomId} ]]*/;
+  /*]]>*/
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/webstomp-client@1.2.6/dist/webstomp.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script type="text/javascript" src="/js/viewer.js"></script>
 </body>
 </html>
