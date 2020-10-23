@@ -2,6 +2,7 @@ package dev.yukiho.homment.controller;
 
 import dev.yukiho.homment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,11 +27,23 @@ public class RoomController {
     @GetMapping
     public String redirectToRoom(@RequestParam("password") String password) {
         // TODO 実装
-        return "index";
+        final var roomId = 1;
+        return "redirect:" + "/rooms/" + roomId + "/cheer";
     }
 
     @GetMapping("/enter")
-    public String getEnterPage(@CookieValue(value = "user", required = false) String user, Model model) {
+    public String getEnterPage(@CookieValue(value = "user", required = false) String user) {
+        // user登録がされていない
+        if (Objects.isNull(user)) {
+            return "redirect:" + "/users/register";
+        }
+
+        return "rooms/enter";
+    }
+
+    @GetMapping("/{roomId}/cheer")
+    public String getCheerView(@CookieValue(value = "user", required = false) String user,
+                               @PathVariable("roomId") Integer roomId, Model model) {
         // user登録がされていない
         if (Objects.isNull(user)) {
             return "redirect:" + "/users/register";
@@ -40,12 +53,13 @@ public class RoomController {
         try {
             final var userData = userService.getUserData(userId);
             model.addAttribute("userData", userData);
+            model.addAttribute("roomId", roomId);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return "redirect:" + "/index";
         }
 
-        return "rooms/enter";
+        return "rooms/cheer";
     }
 
     @GetMapping("/{roomId}/viewer")

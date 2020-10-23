@@ -1,0 +1,65 @@
+.bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/bg_cloud.png') bottom;
+  background-size: cover;
+}
+
+.guide-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 400px;
+  padding: 0 30px;
+}
+
+.guide-wrapper > img {
+  width: 100%;
+}
+
+.guide {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+}
+
+.dummy {
+  width: 100px;
+}
+
+.cheer-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #458C74;
+  color: #FFFFFF;
+  width: 500px;
+  height: 150px;
+  font-size: 70px;
+}
+
+.user-info {
+  position: absolute;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  right: 30px;
+  top: 30px;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  margin: 0 20px;
+}
+
+.username {
+  font-size: 40px;
+}
