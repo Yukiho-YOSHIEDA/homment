@@ -1,13 +1,19 @@
 <html lang="ja">
 <head>
+    <meta charset="UTF-8">
     <title>ほめんと</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<h1>ほめんと</h1>
-<div>
-    <a href="/rooms/enter">
-        教室に入る
-    </a>
+<div class="bg">
+    <div class="button-wrapper">
+        <a href="/rooms/enter">
+            <img class="button-img" src="/images/start.png" alt="開始"/>
+        </a>
+    </div>
 </div>
 </body>
 </html>
