@@ -1,0 +1,18 @@
+.bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/bg_top.png') center;
+  background-size: cover;
+}
+
+.button-wrapper {
+  position: absolute;
+  width: 400px;
+  left: calc(100vw / 2 - 200px);
+  bottom: 90px;
+}
+
+.button-img {
+  width: 100%;
+}
