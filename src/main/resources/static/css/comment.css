@@ -1,0 +1,48 @@
+.bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/bg_cloud.png') bottom;
+  background-size: cover;
+}
+
+.comment-form-wrapper {
+  position: relative;
+}
+
+.comment-form {
+  display: flex;
+  padding: 50px;
+  background: white;
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  border-radius: 30px;
+}
+
+.comment-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #458C74;
+  color: #FFFFFF;
+  width: 500px;
+  height: 150px;
+  font-size: 70px;
+}
+
+.send-icon-wrapper {
+  width: 150px;
+  padding: 0 50px;
+}
+
+.send-icon-wrapper > img, .send-icon-wrapper > input {
+  width: 100%;
+}
+
+.description {
+  font-size: 25px;
+}

@@ -14,3 +14,13 @@ function post(action) {
     console.error('Error:', error);
   });
 }
+
+// WebSocket
+const socket = new SockJS('/sockws');
+stompClient = webstomp.over(socket);
+stompClient.connect({}, function () {
+  stompClient.subscribe('/comment/rooms/' + roomId + '/redirect', function (data) {
+    const res = JSON.parse(data.body);
+    window.location.href = res.url;
+  });
+});
