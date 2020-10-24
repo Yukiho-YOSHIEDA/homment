@@ -1,0 +1,25 @@
+.modal-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  height: 100%;
+}
+
+.link-wrapper {
+  position: absolute;
+  width: 30%;
+  left: calc(50vw - 15%);
+  bottom: 50px;
+}
+
+.cheer {
+  width: 100%;
+}
