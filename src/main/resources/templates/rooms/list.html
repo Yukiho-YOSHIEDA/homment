@@ -18,7 +18,11 @@
         <div th:text="${room.password}">パスワード</div>
         <div><a th:href="@{'/rooms/' + ${room.id} + '/viewer'}">ビューワー</a></div>
         <div><a th:href="@{'/rooms/' + ${room.id} + '/members'}">参加者一覧</a></div>
+        <div>
+            <button th:onclick="@{'post(' + ${room.id} + ')'}">コメント</button>
+        </div>
     </div>
 </div>
+<script type="text/javascript" src="/js/request.js"></script>
 </body>
 </html>

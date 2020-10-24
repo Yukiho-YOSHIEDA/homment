@@ -3,7 +3,6 @@ package dev.yukiho.homment.controller;
 import dev.yukiho.homment.service.RoomService;
 import dev.yukiho.homment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -109,6 +108,41 @@ public class RoomController {
 
         return "rooms/cheer";
     }
+
+    @GetMapping("/{roomId}/comment")
+    public String getCommentPage(@CookieValue(value = "user", required = false) String user,
+                                 @PathVariable("roomId") Integer roomId, @RequestParam("userId") Integer toUserId,
+                                 Model model) {
+        // user登録がされていない
+        if (Objects.isNull(user)) {
+            return "redirect:" + "/users/register";
+        }
+
+        final var room = roomService.getById(roomId);
+        if (Objects.isNull(room)) {
+            return "redirect:" + "/rooms/enter";
+        }
+
+        try {
+            final var userData = userService.getUserData(toUserId);
+            model.addAttribute("name", userData.getName());
+            model.addAttribute("roomId", roomId);
+            model.addAttribute("userId", toUserId);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return "redirect:" + "/index";
+        }
+
+        return "rooms/comment";
+    }
+
+    @PostMapping("/{roomId}/comment")
+    public String postComment(@CookieValue(value = "user", required = false) String user,
+                              @PathVariable("roomId") Integer roomId, @RequestParam("userId") String toUserId,
+                              @RequestParam("comment") String comment) {
+        return "rooms/finished_comment";
+    }
+
 
     @GetMapping("/{roomId}/viewer")
     public String getViewer(Model model, @PathVariable("roomId") Integer roomId) {

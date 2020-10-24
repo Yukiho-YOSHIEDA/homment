@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ほめんと | つたえる</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"><!-- normalize.css -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/comment.css}">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+</head>
+<body>
+<div class="bg" id="bg">
+    <div class="comment-form-wrapper">
+        <form class="comment-form" th:action="@{'/rooms/' + ${roomId} + '/comment'}" method="post">
+            <input name="userId" hidden th:value="${userId}"/>
+            <div>
+                <div class="description"><span th:text="${name}">Sample Name</span>さんに</div>
+                <div class="description">キモチをつたえてみよう！</div>
+                <div>
+                    <textarea id="commentField" name="comment" rows="4" cols="40"></textarea>
+                </div>
+            </div>
+            <div class="send-icon-wrapper">
+                <img id="submitDisable" src="/images/send_gray.png">
+                <input id="submit" type="image" src="/images/send_red.png" style="display: none">
+            </div>
+        </form>
+    </div>
+    <div class="comment-label">つたえる</div>
+</div>
+<script type="text/javascript" src="/js/comment.js"></script>
+</body>
+</html>
